@@ -2,23 +2,27 @@
 
 ## Description
 
-## Table of Contents
+This frontend allow you to send files to a server which store it according to the file name.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contribution](#contribution)
-- [Tests](#tests)
-- [Questions](#questions)
+The aim of this project is to create a voluntary vulnerable application to test the security of Kubernetes cluster policies.
 
 ## Installation
 
+```bash
+npm install
+```
+
 ## Usage
 
-## License
+**Running in development mode**
 
-## Contribution
+```bash
+npm run dev
+```
 
-## Tests
+**Running in production mode**
 
-## Questions
+```bash
+npm run build
+npm start
+```
