@@ -9,12 +9,13 @@ export default function Home() {
         id="dummyframe"
         style={{ display: "none" }}
       ></iframe>
-      <h1 className="text-4xl mt-4 mb-8">File sender</h1>
+      <h1 className="text-4xl mt-4 mb-2">File sender</h1>
+      <p className="mb-8 italic">Uploaded files are removed every 30 seconds</p>
       <form
         action={`${process.env.NEXT_PUBLIC_API_URL ?? ""}/upload`}
         encType="multipart/form-data"
         method="post"
-        className="grid grid-cols-2 gap-y-4 items-center justify-items-center shadow rounded-lg p-4"
+        className="grid grid-cols-2 gap-y-4 items-center justify-items-center shadow rounded-lg p-4 m-2"
         target="dummyframe"
       >
         <label htmlFor="fileName">File name</label>
