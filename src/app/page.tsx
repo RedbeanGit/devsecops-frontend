@@ -3,12 +3,19 @@ import "./globals.css";
 export default function Home() {
   return (
     <div className="flex w-screen items-center flex-col">
+      <iframe
+        title="dummyframe"
+        name="dummyframe"
+        id="dummyframe"
+        style={{ display: "none" }}
+      ></iframe>
       <h1 className="text-4xl mt-4 mb-8">File sender</h1>
       <form
         action={`${process.env.NEXT_PUBLIC_API_URL ?? ""}/upload`}
         encType="multipart/form-data"
         method="post"
         className="grid grid-cols-2 gap-y-4 items-center justify-items-center shadow rounded-lg p-4"
+        target="dummyframe"
       >
         <label htmlFor="fileName">File name</label>
         <input
@@ -16,6 +23,7 @@ export default function Home() {
           type="text"
           placeholder="file.txt"
           required
+          name="filename"
           className="border justify-self-stretch rounded px-2 py-1"
         />
         <label htmlFor="file">File</label>
@@ -23,6 +31,7 @@ export default function Home() {
           id="file"
           type="file"
           required
+          name="file"
           className="border justify-self-stretch rounded"
         />
         <input
