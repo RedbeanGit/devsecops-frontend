@@ -55,7 +55,9 @@ jobs:
   update-chart-version:
     name: Update Helm Chart version
     runs-on: ubuntu-latest
-    needs: build
+    needs:
+      - version
+      - build
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
