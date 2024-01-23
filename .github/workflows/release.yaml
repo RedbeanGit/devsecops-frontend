@@ -65,17 +65,16 @@ jobs:
           fetch-depth: 0
       - name: Update Chart.yaml with new version
         run: |
-          sed -i 's/^appVersion: .*/appVersion: "${{ needs.version.outputs.new-version }}"/' helm/Chart.yaml
+          sed -i 's/^version: .*/version: "${{ needs.version.outputs.new-version }}"/' charts/devsecops-frontend/Chart.yaml
+          sed -i 's/^appVersion: .*/appVersion: "${{ needs.version.outputs.new-version }}"/' charts/devsecops-frontend/Chart.yaml
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add helm/Chart.yaml
+          git add charts/devsecops-frontend/Chart.yaml
           git commit -m "Update Helm chart version to ${{ needs.version.outputs.new-version }}"
           git push
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
-        with:
-          charts_dir: helm
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
