@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   devsecops-frontend:
   - apiVersion: v2
+    appVersion: 0.11.0
+    created: "2024-01-24T15:11:12.723980892Z"
+    digest: ed05fce853911ec804ef309bd13374c7f925f9c67b039fd65dd91f9a754d201d
+    name: devsecops-frontend
+    type: application
+    urls:
+    - https://github.com/RedbeanGit/devsecops-frontend/releases/download/devsecops-frontend-0.11.0/devsecops-frontend-0.11.0.tgz
+    version: 0.11.0
+  - apiVersion: v2
     appVersion: 0.10.0
     created: "2024-01-24T15:06:55.755987783Z"
     digest: 8b7ecba20e3015224e670839c5b20fabc884cb0125257509a1ca3f613eff62a2
@@ -19,4 +28,4 @@ entries:
     urls:
     - https://github.com/RedbeanGit/devsecops-frontend/releases/download/devsecops-frontend-0.9.0/devsecops-frontend-0.9.0.tgz
     version: 0.9.0
-generated: "2024-01-24T15:06:55.756368887Z"
+generated: "2024-01-24T15:11:12.723991071Z"
