@@ -1,6 +1,32 @@
+"use client";
+import { useEffect, useState } from "react";
 import "./globals.css";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+
 export default function Home() {
+  const [uploadCount, setUploadCount] = useState<number>(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch(`${API_URL}/count`)
+        .then((res) => {
+          res
+            .json()
+            .then((data) => {
+              setUploadCount(data.count);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [uploadCount]);
+
   return (
     <div className="flex w-screen items-center flex-col">
       <iframe
@@ -11,8 +37,11 @@ export default function Home() {
       ></iframe>
       <h1 className="text-4xl mt-4 mb-2">File sender</h1>
       <p className="mb-8 italic">Uploaded files are removed every 30 seconds</p>
+      <p className="mb-8">
+        <span className="font-bold">{uploadCount}</span> files uploaded
+      </p>
       <form
-        action={`${process.env.NEXT_PUBLIC_API_URL ?? ""}/upload`}
+        action={`${API_URL}/upload`}
         encType="multipart/form-data"
         method="post"
         className="grid grid-cols-2 gap-y-4 items-center justify-items-center shadow rounded-lg p-4 m-2"

@@ -1,7 +1,15 @@
 version: "3.8"
 
 services:
+  redis:
+    image: bitnami/redis:7.2.4
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
   backend:
     image: ghcr.io/redbeangit/devsecops-backend:latest
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     ports:
       - 3001:3000
